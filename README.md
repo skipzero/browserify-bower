@@ -11,7 +11,7 @@ You can also provide external config, to guide `browserify-bower` to external so
 
 # install
 
-With [npm](https://npmjs.org) do:
+To install with [npm](https://npmjs.org) run:
 
 ```
 npm install browserify-bower
@@ -32,10 +32,22 @@ b.plugin('browserify-bower', {
 	}
 });
 ```
-_p.s. of course, you can also configure this in node `package.json`._
+Of course, you can also configure this in node `package.json`. Just add something like:
+```javascript
+"browserify": {
+  "plugin": [
+    ...
+    ["browserify-bower", {
+      "mainfiles": {
+        "myPlugin": "dist/myPlugin.min.js"
+      }
+    }]
+  ]
+}
+```
 
 Then, in js or html codes, you can require it like normal node module:
-```
+```javascript
 // in xxx.js
 var comp1 = require('comp1');
 var comp2 = require('alias2');
